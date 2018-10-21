@@ -13,7 +13,6 @@ login_manager.init_app(app)
 
 app.config.update(dict(
     SECRET_KEY="powerful secretkey",
-    WTF_CSRF_SECRET_KEY="a csrf secret key",
     SQLALCHEMY_DATABASE_URI='mysql+mysqlconnector://root:test@user_db/user',
 ))
 

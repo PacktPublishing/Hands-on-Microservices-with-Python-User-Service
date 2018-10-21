@@ -1,7 +1,6 @@
 from flask import Flask, g
 
 from flask_login import LoginManager, user_loaded_from_header
-from flask_bootstrap import Bootstrap
 from user_api import user_api_blueprint
 from flask.sessions import SecureCookieSessionInterface
 import models
@@ -11,7 +10,6 @@ app = Flask(__name__)
 login_manager = LoginManager(app)
 login_manager.init_app(app)
 
-bootstrap = Bootstrap(app)
 
 app.config.update(dict(
     SECRET_KEY="powerful secretkey",

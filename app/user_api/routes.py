@@ -1,8 +1,16 @@
-from flask import make_response, request, jsonify
+from flask import make_response, request, json, jsonify
 from flask_login import current_user, login_user, logout_user, login_required
 from passlib.hash import sha256_crypt
 from . import user_api_blueprint
 from models import db, User
+
+
+@user_api_blueprint.route("/api/user/docs.json", methods=['GET'])
+def swagger_api_docs_yml():
+    with open('swagger.json') as fd:
+        json_data = json.load(fd)
+
+    return jsonify(json_data)
 
 
 @user_api_blueprint.route('/api/users', methods=['GET'])

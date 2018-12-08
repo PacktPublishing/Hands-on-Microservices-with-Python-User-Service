@@ -8,6 +8,7 @@ dominate==2.3.4
 Flask==1.0.2
 Flask-Login==0.4.1
 Flask-SQLAlchemy==2.3.2
+flask-swagger-ui==3.18.0
 idna==2.7
 ItsDangerous==1.1.0
 Jinja2==2.10

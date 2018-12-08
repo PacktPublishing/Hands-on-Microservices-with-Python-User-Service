@@ -2,9 +2,9 @@ from flask import Flask, g
 
 from flask_login import LoginManager, user_loaded_from_header
 from user_api import user_api_blueprint
+from flask_swagger_ui import get_swaggerui_blueprint
 from flask.sessions import SecureCookieSessionInterface
 import models
-
 
 app = Flask(__name__)
 login_manager = LoginManager(app)
@@ -20,6 +20,15 @@ models.init_app(app)
 models.create_tables(app)
 
 app.register_blueprint(user_api_blueprint)
+
+SWAGGER_URL = '/api/docs'
+API_URL = '/api/user/docs.json'
+
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+)
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 
 @login_manager.user_loader

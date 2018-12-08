@@ -1,0 +1,163 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "User service for order management system micro service",
+        "version": "1.0.0",
+        "title": "User Service"
+    },
+    "host": "192.168.99.102:8082",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+      "/users": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Get all the users",
+          "description": "",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation"
+            }
+          }
+        }
+      },
+      "/user/login": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Logs a user into the service",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "username",
+              "in": "formData",
+              "description": "Users username",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "in": "formData",
+              "description": "Users password",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Logged in'"
+            },
+            "401": {
+              "description": "Not logged in"
+            }
+          }
+        }
+      },
+      "/user/{username}/exists": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Checks if the username exists",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "username",
+              "in": "path",
+              "description": "Users username",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Found'"
+            },
+            "404": {
+              "description": "Cannot find username"
+            }
+          }
+        }
+      },
+      "/user": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Returns the user",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Found'"
+            },
+            "404": {
+              "description": "You are not logged in"
+            }
+          }
+        }
+      },
+      "/user/create": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "summary": "Logs a user into the service",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "first_name",
+              "in": "formData",
+              "description": "Users first name",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "last_name",
+              "in": "formData",
+              "description": "Users last name",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "email",
+              "in": "formData",
+              "description": "Users email",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "username",
+              "in": "formData",
+              "description": "Users username",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Logged in'"
+            },
+            "401": {
+              "description": "Not logged in"
+            }
+          }
+        }
+      }
+    }
+}

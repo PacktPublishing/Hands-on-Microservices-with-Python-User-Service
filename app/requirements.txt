@@ -11,7 +11,7 @@ Flask-SQLAlchemy==2.3.2
 flask-swagger-ui==3.18.0
 idna==2.7
 ItsDangerous==1.1.0
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 more-itertools==4.3.0
 mysql-connector==2.2.9
